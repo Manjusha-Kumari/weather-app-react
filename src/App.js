@@ -3,9 +3,14 @@ import Card from './component/card';
 import Input from './component/input';
 import { useWeather } from './context/weather';
 import './App.css';
+import { useEffect } from 'react';
 
 function App() {
   const weather = useWeather();
+
+  useEffect(() => {
+    weather.fetchLocation()
+  }, []);
 
   return (
     <div className="App">
